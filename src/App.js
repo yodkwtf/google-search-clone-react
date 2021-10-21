@@ -1,8 +1,12 @@
+import { Navbar, Routes, Footer } from './components';
+
 const App = () => {
   return (
-    <div>
-      <h5>Google Search Clone</h5>
-    </div>
+    <main>
+      <Navbar />
+      <Routes />
+      <Footer />
+    </main>
   );
 };
 
