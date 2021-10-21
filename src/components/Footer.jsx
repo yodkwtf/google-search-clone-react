@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <footer className="text-center p-8 mt-8 border-t dark:border-gray-500 border-gray-200">
+      Copyright &copy;{new Date().getFullYear()} GoogleSearchClone Inc.
+    </footer>
   );
 };
 
