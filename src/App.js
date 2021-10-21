@@ -1,5 +1,9 @@
 const App = () => {
-  return <div>Google Clone</div>;
+  return (
+    <div>
+      <h5>Google Search Clone</h5>
+    </div>
+  );
 };
 
 export default App;
