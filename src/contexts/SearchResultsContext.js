@@ -10,6 +10,7 @@ export const SearchResultsProvider = ({ children }) => {
   const [searchItem, setSearchItem] = useState('');
 
   //# FUNCTIONS
+  // resultType -> /images, /videos
   const fetchResults = async (resultType) => {
     setIsLoading(true);
     const result = await fetch(`${baseUrl}${resultType}`, {
