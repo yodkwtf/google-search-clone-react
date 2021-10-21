@@ -15,7 +15,23 @@ const SearchResults = () => {
   // #JSX
   if (isLoading) return <Loading />;
 
-  return <div>Search Results</div>;
+  // returns based on result types
+  switch (location.pathname) {
+    case '/search':
+      return 'DEFAULT SEARCH';
+
+    case '/images':
+      return 'Images';
+
+    case '/videos':
+      return 'Videos';
+
+    case '/news':
+      return 'news';
+
+    default:
+      return 'ERROR!';
+  }
 };
 
 export default SearchResults;

@@ -13,7 +13,7 @@ export const SearchResultsProvider = ({ children }) => {
   // resultType -> /images, /videos
   const fetchResults = async (resultType) => {
     setIsLoading(true);
-    const result = await fetch(`${baseUrl}${resultType}`, {
+    const res = await fetch(`${baseUrl}${resultType}`, {
       method: 'GET',
       headers: {
         'x-user-agent': 'desktop',
@@ -21,7 +21,7 @@ export const SearchResultsProvider = ({ children }) => {
         'x-rapidapi-key': 'SIGN-UP-FOR-KEY',
       },
     });
-    const data = await result.json();
+    const data = await res.json();
     setResults(data);
     setIsLoading(false);
   };
