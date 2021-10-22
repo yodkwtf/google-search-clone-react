@@ -7,7 +7,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# states
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchItem, setSearchItem] = useState('yodkwtf');
+  const [searchItem, setSearchItem] = useState('coding');
 
   //# FUNCTIONS
   // resultType -> /images, /videos
@@ -23,7 +23,14 @@ export const SearchResultsProvider = ({ children }) => {
     });
     const data = await res.json();
     console.log(data);
-    setResults(data);
+
+    if (resultType.includes('/news')) {
+      setResults(data.entries);
+    } else if (resultType.includes('/images')) {
+      setResults(data.image_results);
+    } else {
+      setResults(data.results);
+    }
     setIsLoading(false);
   };
 

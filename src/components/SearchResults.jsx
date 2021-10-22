@@ -35,16 +35,16 @@ const SearchResults = () => {
   // returns based on result types
   switch (location.pathname) {
     case '/search':
-      return <DefaultSearch results={results.results} />;
+      return <DefaultSearch results={results} />;
 
     case '/images':
-      return <ImageSearch results={results.image_results} />;
-
-    case '/videos':
-      return <VideoSearch results={results.results} />;
+      return <ImageSearch results={results} />;
 
     case '/news':
-      return <NewsSearch results={results.results} />;
+      return <NewsSearch results={results} />;
+
+    case '/videos':
+      return <VideoSearch results={results} />;
 
     default:
       return 'ERROR!';
