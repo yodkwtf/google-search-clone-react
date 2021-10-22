@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDebounce } from 'use-debounce/lib';
+import { useDebounce } from 'use-debounce';
 import { useSearchResultsContext } from '../contexts/SearchResultsContext';
 import NavLinks from './NavLinks';
 

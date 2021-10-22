@@ -7,7 +7,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# states
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchItem, setSearchItem] = useState('elon musk');
+  const [searchItem, setSearchItem] = useState('');
 
   //# FUNCTIONS
   // resultType -> /images, /videos
@@ -25,11 +25,11 @@ export const SearchResultsProvider = ({ children }) => {
     const data = await res.json();
 
     if (resultType.includes('/news')) {
-      setResults(data?.entries);
+      setResults(data.entries);
     } else if (resultType.includes('/images')) {
-      setResults(data?.image_results);
+      setResults(data.image_results);
     } else {
-      setResults(data?.results);
+      setResults(data.results);
     }
     setIsLoading(false);
   };

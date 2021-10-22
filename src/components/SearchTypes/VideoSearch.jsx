@@ -7,12 +7,14 @@ const VideoSearch = ({ results }) => {
       {results?.map((result, index) => {
         return (
           <div className="p-2" key={index}>
-            <ReactPlayer
-              url={result.link}
-              controls
-              width="320px"
-              height="180px"
-            />
+            {result.link && (
+              <ReactPlayer
+                url={result.link}
+                controls
+                width="320px"
+                height="180px"
+              />
+            )}
           </div>
         );
       })}
