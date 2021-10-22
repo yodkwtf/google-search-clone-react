@@ -7,7 +7,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# states
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchItem, setSearchItem] = useState('coding');
+  const [searchItem, setSearchItem] = useState('elon musk');
 
   //# FUNCTIONS
   // resultType -> /images, /videos

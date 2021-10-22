@@ -8,7 +8,10 @@ const NewsSearch = ({ results }) => {
         const { id, title, link, source } = result;
 
         return (
-          <div className="md:w-3/5 w-full" key={id}>
+          <div
+            className="md:w-3/5 w-full border border-gray-300 dark:border-gray-500 rounded p-4"
+            key={id}
+          >
             <a
               href={link}
               target="_blank"

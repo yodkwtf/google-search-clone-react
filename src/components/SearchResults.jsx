@@ -6,7 +6,6 @@ import {
   VideoSearch,
   NewsSearch,
 } from './SearchTypes';
-import ReactPlayer from 'react-player';
 import { useSearchResultsContext } from '../contexts/SearchResultsContext';
 import Loading from './Loading';
 
