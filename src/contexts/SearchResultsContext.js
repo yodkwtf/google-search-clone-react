@@ -7,7 +7,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# states
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchItem, setSearchItem] = useState('');
+  const [searchItem, setSearchItem] = useState('yodkwtf');
 
   //# FUNCTIONS
   // resultType -> /images, /videos

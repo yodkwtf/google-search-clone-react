@@ -20,8 +20,14 @@ const SearchResults = () => {
 
   // useEffect
   useEffect(() => {
-    fetchResults('/search/q=durgesh');
-  }, []);
+    if (searchItem) {
+      if (location.pathname === '/videos') {
+        fetchResults(`/search/q=${searchItem} videos`);
+      } else {
+        fetchResults(`${location.pathname}/q=${searchItem}&num=30`);
+      }
+    }
+  }, [searchItem, location.pathname]);
 
   // #JSX
   if (isLoading) return <Loading />;
@@ -29,22 +35,16 @@ const SearchResults = () => {
   // returns based on result types
   switch (location.pathname) {
     case '/search':
-      return (
-        <div className="flex flex-wrap justify-between space-y-6 sm:px-56">
-          {results.results.map((result, index) => (
-            <DefaultSearch result={result} key={index} />
-          ))}
-        </div>
-      );
+      return <DefaultSearch results={results.results} />;
 
     case '/images':
-      return 'Images';
+      return <ImageSearch results={results.image_results} />;
 
     case '/videos':
-      return 'Videos';
+      return <VideoSearch results={results.results} />;
 
     case '/news':
-      return 'news';
+      return <NewsSearch results={results.results} />;
 
     default:
       return 'ERROR!';
