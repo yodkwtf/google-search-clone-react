@@ -12,6 +12,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# FUNCTIONS
   // resultType -> /images, /videos
   const fetchResults = async (resultType) => {
+    console.log(12);
     setIsLoading(true);
     const res = await fetch(`${baseUrl}${resultType}`, {
       method: 'GET',
@@ -25,11 +26,11 @@ export const SearchResultsProvider = ({ children }) => {
     console.log(data);
 
     if (resultType.includes('/news')) {
-      setResults(data.entries);
+      setResults(data?.entries);
     } else if (resultType.includes('/images')) {
-      setResults(data.image_results);
+      setResults(data?.image_results);
     } else {
-      setResults(data.results);
+      setResults(data?.results);
     }
     setIsLoading(false);
   };
