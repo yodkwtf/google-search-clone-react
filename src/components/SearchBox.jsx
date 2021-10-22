@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDebounce } from 'use-debounce/lib';
+import { useSearchResultsContext } from '../contexts/SearchResultsContext';
 import NavLinks from './NavLinks';
 
 const SearchBox = () => {
+  // states
+  const [text, setText] = useState('yodkwtf');
+  const { setSearchItem } = useSearchResultsContext();
+
+  const [debouncedValue] = useDebounce(text, 750);
+
+  // useEffect
+  useEffect(() => {
+    if (debouncedValue) setSearchItem(debouncedValue);
+  }, [debouncedValue]);
+
+  // jsx
   return (
-    <div>
-      Search Box <NavLinks />
+    <div className="relative sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
+      <input
+        type="text"
+        value={text}
+        className="sm:w-96 w-80 h-10 dark:bg-gray-200 border rounded-full shadow-sm outline-none p-6 text-black hover:shadow-md"
+        placeholder="Search here..."
+        onChange={(e) => setText(e.target.value)}
+      />
+      {!text && (
+        <button
+          className="absolute top-1.5 right-4 text-2xl text-gray-500"
+          onClick={() => setText('')}
+        >
+          X
+        </button>
+      )}
+      <NavLinks />
     </div>
   );
 };

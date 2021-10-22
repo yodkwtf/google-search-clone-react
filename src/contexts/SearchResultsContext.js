@@ -12,7 +12,7 @@ export const SearchResultsProvider = ({ children }) => {
   //# FUNCTIONS
   // resultType -> /images, /videos
   const fetchResults = async (resultType) => {
-    console.log(12);
+    console.log('loading is true');
     setIsLoading(true);
     const res = await fetch(`${baseUrl}${resultType}`, {
       method: 'GET',
@@ -23,7 +23,6 @@ export const SearchResultsProvider = ({ children }) => {
       },
     });
     const data = await res.json();
-    console.log(data);
 
     if (resultType.includes('/news')) {
       setResults(data?.entries);

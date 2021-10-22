@@ -29,25 +29,27 @@ const SearchResults = () => {
   }, [searchItem, location.pathname]);
 
   // #JSX
-  if (isLoading) return <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  } else {
+    switch (location.pathname) {
+      case '/search':
+        return <DefaultSearch results={results} />;
 
-  // returns based on result types
-  switch (location.pathname) {
-    case '/search':
-      return <DefaultSearch results={results} />;
+      case '/images':
+        return <ImageSearch results={results} />;
 
-    case '/images':
-      return <ImageSearch results={results} />;
+      case '/news':
+        return <NewsSearch results={results} />;
 
-    case '/news':
-      return <NewsSearch results={results} />;
+      case '/videos':
+        return <VideoSearch results={results} />;
 
-    case '/videos':
-      return <VideoSearch results={results} />;
-
-    default:
-      return 'ERROR!';
+      default:
+        return 'ERROR!';
+    }
   }
+  // returns based on result types
 };
 
 export default SearchResults;
