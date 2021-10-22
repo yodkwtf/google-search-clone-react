@@ -18,10 +18,11 @@ export const SearchResultsProvider = ({ children }) => {
       headers: {
         'x-user-agent': 'desktop',
         'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-        'x-rapidapi-key': 'SIGN-UP-FOR-KEY',
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY,
       },
     });
     const data = await res.json();
+    console.log(data);
     setResults(data);
     setIsLoading(false);
   };
