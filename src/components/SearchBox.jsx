@@ -13,7 +13,7 @@ const SearchBox = () => {
   // useEffect
   useEffect(() => {
     if (debouncedValue) setSearchItem(debouncedValue);
-  }, [debouncedValue]);
+  }, [debouncedValue, setSearchItem]);
 
   // jsx
   return (
@@ -25,7 +25,7 @@ const SearchBox = () => {
         placeholder="Search here..."
         onChange={(e) => setText(e.target.value)}
       />
-      {!text && (
+      {text && (
         <button
           className="absolute top-1.5 right-4 text-2xl text-gray-500"
           onClick={() => setText('')}
