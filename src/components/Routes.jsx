@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect } from 'react-router';
 import SearchResults from './SearchResults';
+import NotFound from './SearchTypes/NotFound';
 
 const Routes = () => {
   return (
@@ -13,6 +14,10 @@ const Routes = () => {
         {/* for all specified path. result only one component */}
         <Route exact path={['/search', '/images', '/videos', '/news']}>
           <SearchResults />
+        </Route>
+
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </div>

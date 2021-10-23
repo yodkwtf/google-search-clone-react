@@ -27,10 +27,10 @@ const SearchBox = () => {
       />
       {text && (
         <button
-          className="absolute top-1.5 right-4 text-2xl text-gray-500"
+          className="absolute top-1.5 right-4 text-2xl text-gray-500 pr-2 "
           onClick={() => setText('')}
         >
-          X
+          x
         </button>
       )}
       <NavLinks />
