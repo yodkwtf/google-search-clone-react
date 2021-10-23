@@ -6,13 +6,12 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 export const SearchResultsProvider = ({ children }) => {
   //# states
   const [results, setResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchItem, setSearchItem] = useState('');
 
   //# FUNCTIONS
   // resultType -> /images, /videos
   const fetchResults = async (resultType) => {
-    console.log('loading is true');
     setIsLoading(true);
     const res = await fetch(`${baseUrl}${resultType}`, {
       method: 'GET',
@@ -23,14 +22,7 @@ export const SearchResultsProvider = ({ children }) => {
       },
     });
     const data = await res.json();
-
-    if (resultType.includes('/news')) {
-      setResults(data.entries);
-    } else if (resultType.includes('/images')) {
-      setResults(data.image_results);
-    } else {
-      setResults(data.results);
-    }
+    setResults(data);
     setIsLoading(false);
   };
 

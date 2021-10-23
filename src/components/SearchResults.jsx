@@ -32,22 +32,19 @@ const SearchResults = () => {
   if (isLoading) {
     return <Loading />;
   }
+
   // returns based on result types
-  switch (location.pathname) {
-    case '/search':
-      return <DefaultSearch results={results} />;
-
-    case '/images':
-      return <ImageSearch results={results} />;
-
-    case '/news':
-      return <NewsSearch results={results} />;
-
-    case '/videos':
-      return <VideoSearch results={results} />;
-
-    default:
-      return 'ERROR!';
+  if (location.pathname === '/search') {
+    return <DefaultSearch results={results.results} />;
+  }
+  if (location.pathname === '/images') {
+    return <ImageSearch results={results.image_results} />;
+  }
+  if (location.pathname === '/news') {
+    return <NewsSearch results={results.entries} />;
+  }
+  if (location.pathname === '/videos') {
+    return <VideoSearch results={results.results} />;
   }
 };
 

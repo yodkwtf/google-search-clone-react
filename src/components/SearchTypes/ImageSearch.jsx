@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ImageSearch = ({ results }) => {
-  console.log('shoudnt');
   return (
     <article className="flex flex-wrap justify-center items-center">
       {results?.map((result, index) => {
