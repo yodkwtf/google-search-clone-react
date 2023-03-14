@@ -1,6 +1,6 @@
 # Google Search Clone
 
-A Google Search Clone created with reactjs and talwind css. The search results are fetch via an external api provided by RapidAPI. There are multiple types of search results including images, videos, and news.
+A Google Search Clone created with reactjs and tailwind css. The search results are fetch via an external api provided by RapidAPI. There are multiple types of search results including images, videos, and news.
 
 ## Preview
 
@@ -9,7 +9,7 @@ A Google Search Clone created with reactjs and talwind css. The search results a
 ## Tech Stack
 
 - React Hooks
-- [Talwind CSS](https://react-icons.github.io/react-icons/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [RapidAPI](https://rapidapi.com/hub)
 
 ## Resources & References
