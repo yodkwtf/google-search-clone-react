@@ -22,7 +22,8 @@ const SearchResults = () => {
     if (searchItem) {
       fetchResults(searchItem);
     }
-  }, [searchItem, fetchResults]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchItem]);
 
   // #JSX
   if (isLoading) {
