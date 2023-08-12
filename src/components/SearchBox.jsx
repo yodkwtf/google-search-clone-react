@@ -8,7 +8,7 @@ const SearchBox = () => {
   const [text, setText] = useState('Yodkwtf');
   const { setSearchItem } = useSearchResultsContext();
 
-  const [debouncedValue] = useDebounce(text, 750);
+  const [debouncedValue] = useDebounce(text, 1000);
 
   // useEffect
   useEffect(() => {

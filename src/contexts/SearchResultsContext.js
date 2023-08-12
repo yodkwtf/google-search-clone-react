@@ -19,6 +19,13 @@ export const SearchResultsProvider = ({ children }) => {
     const res = await fetch(
       `${baseUrl}?key=${apiKey}&cx=${contextKey}&q=${searchTerm}`
     );
+    if (res.status === 429) {
+      setIsLoading(false);
+      setResults([]);
+      return alert(
+        "API only allows 100 requests per day and we have reached the limit. Please try again tomorrow. If you're the developer, you know the pain of free APIs :)"
+      );
+    }
     const data = await res.json();
     setResults(data);
     setIsLoading(false);
