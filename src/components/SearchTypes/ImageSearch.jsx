@@ -9,23 +9,26 @@ const ImageSearch = ({ results }) => {
       {(results?.length === 0 && <NotFound />) ||
         results?.map((result, index) => {
           // desctructure
-          const {
-            image: { src, alt },
-            link: { title, href },
-          } = result;
+          const { imageobject: images } = result.pagemap;
+          const { title } = result;
 
-          return (
-            <a
-              href={href}
-              key={index}
-              className="sm:p-3 p-5"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={src} alt={alt} loading="lazy" />
-              <p className="w-36 break-words text-sm mt-2">{title}</p>
-            </a>
-          );
+          return images?.map((image) => {
+            const src = image.thumbnailurl;
+            const href = image.contenturl;
+
+            return (
+              <a
+                href={href}
+                key={index}
+                className="sm:p-3 p-5"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={src} alt={title} loading="lazy" />
+                <p className="w-36 break-words text-sm mt-2">{title}</p>
+              </a>
+            );
+          });
         })}
     </article>
   );

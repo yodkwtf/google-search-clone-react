@@ -1,7 +1,10 @@
 import React, { createContext, useContext, useState } from 'react';
+// import data from '../data/mockData.json';
 
 const SearchResultsContext = createContext();
-const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
+const baseUrl = 'https://www.googleapis.com/customsearch/v1';
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+const contextKey = process.env.REACT_APP_GOOGLE_CONTEXT_KEY;
 
 export const SearchResultsProvider = ({ children }) => {
   //# states
@@ -11,16 +14,11 @@ export const SearchResultsProvider = ({ children }) => {
 
   //# FUNCTIONS
   // resultType -> /images, /videos
-  const fetchResults = async (resultType) => {
+  const fetchResults = async (searchTerm) => {
     setIsLoading(true);
-    const res = await fetch(`${baseUrl}${resultType}`, {
-      method: 'GET',
-      headers: {
-        'x-user-agent': 'desktop',
-        'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-        'x-rapidapi-key': process.env.REACT_APP_API_KEY,
-      },
-    });
+    const res = await fetch(
+      `${baseUrl}?key=${apiKey}&cx=${contextKey}&q=${searchTerm}`
+    );
     const data = await res.json();
     setResults(data);
     setIsLoading(false);

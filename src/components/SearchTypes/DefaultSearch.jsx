@@ -12,9 +12,9 @@ const DefaultSearch = ({ results }) => {
             <a href={result.link} target="_blank" rel="noreferrer">
               {/* page url */}
               <p className="text-sm">
-                {result.link.length > 30
-                  ? result.link.substring(0, 30)
-                  : result.link}
+                {result.formattedUrl.length > 30
+                  ? result.formattedUrl.substring(0, 30)
+                  : result.formattedUrl}
               </p>
 
               {/* title */}
@@ -24,7 +24,7 @@ const DefaultSearch = ({ results }) => {
             </a>
 
             {/* desc */}
-            <small>{result.description.substring(0, 200)}...</small>
+            <small>{result.snippet.substring(0, 200)}...</small>
           </div>
         ))}
     </article>

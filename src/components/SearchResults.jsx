@@ -20,13 +20,9 @@ const SearchResults = () => {
   // useEffect
   useEffect(() => {
     if (searchItem) {
-      if (location.pathname === '/videos') {
-        fetchResults(`/search/q=${searchItem} videos`);
-      } else {
-        fetchResults(`${location.pathname}/q=${searchItem}&num=30`);
-      }
+      fetchResults(searchItem);
     }
-  }, [searchItem, location.pathname]);
+  }, [searchItem]);
 
   // #JSX
   if (isLoading) {
@@ -35,16 +31,16 @@ const SearchResults = () => {
 
   // returns based on result types
   if (location.pathname === '/search') {
-    return <DefaultSearch results={results.results} />;
+    return <DefaultSearch results={results.items} />;
   }
   if (location.pathname === '/images') {
-    return <ImageSearch results={results.image_results} />;
+    return <ImageSearch results={results.items} />;
   }
-  if (location.pathname === '/news') {
-    return <NewsSearch results={results.entries} />;
-  }
+  // if (location.pathname === '/news') {
+  //   return <NewsSearch results={results.entries} />;
+  // }
   if (location.pathname === '/videos') {
-    return <VideoSearch results={results.results} />;
+    return <VideoSearch results={results.items} />;
   }
 };
 
