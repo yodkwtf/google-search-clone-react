@@ -4,7 +4,7 @@ import {
   DefaultSearch,
   ImageSearch,
   VideoSearch,
-  NewsSearch,
+  // NewsSearch,
 } from './SearchTypes';
 import { useSearchResultsContext } from '../contexts/SearchResultsContext';
 import Loading from './Loading';
@@ -22,7 +22,7 @@ const SearchResults = () => {
     if (searchItem) {
       fetchResults(searchItem);
     }
-  }, [searchItem]);
+  }, [searchItem, fetchResults]);
 
   // #JSX
   if (isLoading) {
